@@ -1,0 +1,119 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+       <modelVersion>4.0.0</modelVersion>
+       <groupId>com.markqt.bpm</groupId>
+       <artifactId>camunda-springboot</artifactId>
+       <version>0.0.1-SNAPSHOT</version>
+       <properties>
+<!--         <camunda.spring-boot.version>3.4.4</camunda.spring-boot.version> -->
+             <camunda.spring-boot.version>7.13.0</camunda.spring-boot.version>
+             <spring-boot.version>2.3.0.RELEASE</spring-boot.version>
+             <maven.compiler.source>1.8</maven.compiler.source>
+             <maven.compiler.target>1.8</maven.compiler.target>
+       </properties>
+       <dependencyManagement>
+             <dependencies>
+                    <dependency>
+                           <groupId>org.springframework.boot</groupId>
+                          <artifactId>spring-boot-dependencies</artifactId>
+                          <version>${spring-boot.version}</version>
+                          <type>pom</type>
+                          <scope>import</scope>
+                    </dependency>
+             </dependencies>
+       </dependencyManagement>
+       <dependencies>
+             <!-- <dependency> -->
+             <!-- <groupId>org.camunda.bpm.springboot</groupId> -->
+             <!-- <artifactId>camunda-bpm-spring-boot-starter-webapp-ee</artifactId> -->
+             <!-- <version>3.4.4</version> -->
+             <!-- </dependency> -->
+             <dependency>
+                    <groupId>org.camunda.bpm.springboot</groupId>
+                    <artifactId>camunda-bpm-spring-boot-starter-webapp</artifactId>
+                    <version>${camunda.spring-boot.version}</version>
+             </dependency>
+             <dependency>
+                    <groupId>org.camunda.bpm.springboot</groupId>
+                    <artifactId>camunda-bpm-spring-boot-starter-rest</artifactId>
+                    <version>${camunda.spring-boot.version}</version>
+             </dependency>
+             
+             <dependency>
+                    <groupId>com.sun.xml.bind</groupId>
+                    <artifactId>jaxb-impl</artifactId>
+                    <version>2.2.3</version>
+             </dependency>
+             <dependency>
+                    <groupId>mysql</groupId>
+                    <artifactId>mysql-connector-java</artifactId>
+             </dependency>
+<!--         <dependency> -->
+<!--                <groupId>javax.persistence</groupId> -->
+<!--                <artifactId>persistence-api</artifactId> -->
+<!--                <version>1.0.2</version> -->
+<!--         </dependency> -->
+             <dependency>
+                 <groupId>javax.persistence</groupId>
+                 <artifactId>javax.persistence-api</artifactId>
+<!--             <version>2.2</version> -->
+             </dependency>
+
+             <dependency>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-devtools</artifactId>
+                    <scope>runtime</scope>
+                    <optional>true</optional>
+             </dependency>
+             <dependency>
+                    <groupId>org.codehaus.groovy</groupId>
+                    <artifactId>groovy-all</artifactId>
+                    <version>2.4.9</version>
+             </dependency>
+
+           <!-- redirect slf4j logging to jdk logging -->
+             <dependency>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-jdk14</artifactId>
+             </dependency>
+
+             <!-- unit test -->
+             <dependency>
+                    <groupId>org.camunda.bpm.springboot</groupId>
+                    <artifactId>camunda-bpm-spring-boot-starter-test</artifactId>
+                    <version>${camunda.spring-boot.version}</version>
+                    <scope>test</scope>
+           </dependency>
+             <dependency>
+                    <groupId>junit</groupId>
+                    <artifactId>junit</artifactId>
+                    <scope>test</scope>
+             </dependency>
+             <dependency>
+                    <groupId>com.h2database</groupId>
+                    <artifactId>h2</artifactId>
+                    <scope>test</scope>
+             </dependency>
+       </dependencies>
+
+       <build>
+             <plugins>
+                    <plugin>
+                           <groupId>org.springframework.boot</groupId>
+                          <artifactId>spring-boot-maven-plugin</artifactId>
+                          <configuration>
+                                 <layout>ZIP</layout>
+                          </configuration>
+                          <executions>
+                                 <execution>
+                                       <goals>
+                                              <goal>repackage</goal>
+                                       </goals>
+                                 </execution>
+                          </executions>
+                    </plugin>
+             </plugins>
+       </build>
+
+</project>
