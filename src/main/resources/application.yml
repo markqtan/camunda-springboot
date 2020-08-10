@@ -1,5 +1,6 @@
 ---
 server.port: 8181
+spring.jersey.application-path: rest
 
 spring.profiles.include: 
    - mysql
